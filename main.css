@@ -1,0 +1,362 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url('/static/images/background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.blue-button {
+  padding: 12px 24px;
+  background-color: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.blue-button:hover {
+  background-color: #1d4ed8;
+}
+
+.blue-button:active {
+  background-color: #1e40af;
+}
+
+/* 导航栏 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  height: 40px;
+}
+
+.navbar-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem;
+}
+
+.mobile-menu.active {
+  max-height: 300px;
+}
+
+/* 标题区域 */
+.hero {
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, 
+    rgba(255,0,0,1) 0%, 
+    rgba(255,154,0,1) 10%, 
+    rgba(208,222,33,1) 20%, 
+    rgba(79,220,74,1) 30%, 
+    rgba(63,218,216,1) 40%, 
+    rgba(47,213,206,1) 50%, 
+    rgba(28,127,238,1) 60%, 
+    rgba(95,21,242,1) 70%, 
+    rgba(186,12,248,1) 80%, 
+    rgba(251,7,217,1) 90%, 
+    rgba(255,0,0,1) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 15s linear infinite;
+}
+
+@keyframes gradient {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.hero-desc {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 图片展示区 */
+.features {
+  padding: 3rem 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-card {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-img {
+  height: 200px;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  position: relative; /* 容器设为相对定位 */
+  overflow: hidden;
+}
+
+.feature-img img {
+  position: absolute; /* 图片绝对定位 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 精准居中 */
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* 毛玻璃效果 */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* 用户评价轮播 */
+.testimonials {
+  padding: 3rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.testimonial-card {
+  min-width: 100%;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .testimonial-card {
+    min-width: calc(50% - 0.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonial-card {
+    min-width: calc(25% - 0.75rem);
+  }
+}
+
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #eee;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev-btn {
+  left: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.next-btn {
+  right: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 常见问题 */
+.faq {
+  padding: 3rem 0;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-card {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq-question i {
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 1rem;
+}
+
+.faq-answer p {
+  padding: 1rem 0;
+}
+
+/* 不同颜色的FAQ卡片 */
+.faq-blue {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.faq-green {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.faq-yellow {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.faq-purple {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+/* 页脚 */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+}
